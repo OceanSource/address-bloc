@@ -48,7 +48,7 @@
  end
 
    # Test that AddressBook's .import_from_csv() method is working as expected
-describe "#import_from_csv" do
+    describe "#import_from_csv" do
      it "tests the csv import process" do
        book.import_from_csv("entries.csv")
        book_size = book.entries.size
@@ -94,6 +94,35 @@ describe "#import_from_csv" do
        check_entry(entry_five, "Sussie", "555-555-2036", "sussie@blocmail.com")
 
      end
+     
+     it "tests the csv(2) import process" do
+       book.import_from_csv("entries2.csv")
+       book_size = book.entries.size
+
+       # Check the size of the AddressBook.entries
+       expect(book_size).to eql 3
+     end
+
+     it "imports the 1nd entry" do
+       book.import_from_csv("entries2.csv")
+       # Check the second entry
+       entry_two = book.entries[1]
+       check_entry(entry_two, "Bobby", "555-555-5415", "bob@blocmail.com")
+     end
+    it "imports the 2st entry" do
+       book.import_from_csv("entries2.csv")
+       # Check the first entry
+       entry_one = book.entries[0]
+       check_entry(entry_one, "Billy", "555-555-4854", "bill@blocmail.com")
+     end
+     it "imports the 3rd entry" do
+       book.import_from_csv("entries2.csv")
+       # Check the third entry
+       entry_three = book.entries[2]
+       check_entry(entry_three, "Joey", "555-555-3660", "joe@blocmail.com")
+
+     end
+
 
    end
  end
