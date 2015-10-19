@@ -64,7 +64,7 @@
     def view_by_number
         print "Enter the entry number: "
         selection = gets.chomp.to_i
-        if selection > @address_book.entries.count
+        if selection > @address_book.entries.count-1
             puts"Not a vailid number"
             view_by_number
         else  
