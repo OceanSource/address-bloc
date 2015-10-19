@@ -44,7 +44,18 @@
         end
     end
     
-    # Search AddressBook for a specific entry by name
+    # iterative Search AddressBook for a specific entry by name
+    def iterative_search(name)
+        @entries.each do |entry|
+            if entry.name == name
+                return entry
+            end
+            
+        end
+        return nil
+    end    
+    
+    # binary Search AddressBook for a specific entry by name
     def binary_search(name)
         lower = 0
         upper = entries.length - 1
