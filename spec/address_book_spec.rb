@@ -46,6 +46,17 @@
      expect(new_entry.email).to eq 'augusta.king@lovelace.com'
    end
  end
+ 
+ describe "#nuke" do
+    it "should delete all entries" do
+        book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+        book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')         
+        book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+        
+        book.nuke
+        expect(book.entries.size).to eq 0
+    end
+ end
 
    # Test that AddressBook's .import_from_csv() method is working as expected
     describe "#import_from_csv" do
